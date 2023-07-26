@@ -36,6 +36,24 @@ const parseDOM = () => {
   } else {
     console.log("Duplicate");
   }
+  let attributes = targetElemt.attributes;
+  addAllXPathAttributes(attributes, tag);
+};
+
+const addAllXPathAttributes = (attributes, tagName) => {
+  console.log(attributes);
+  console.log(tagName);
+
+  Array.prototype.slice.call(attributes).forEach((element) => {
+    //console.log(element);
+    temp = `//${tagName}[@${element.name}='${element.value}']`;
+    let count = getCountOfXPath(temp);
+    if (count == 1) {
+      console.log(temp);
+    } else {
+      // console.log("Duplicate");
+    }
+  });
 };
 
 const getCountOfXPath = (xpath) => {
