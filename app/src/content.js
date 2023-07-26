@@ -27,31 +27,29 @@ const init = () => {
 
 const parseDOM = () => {
   let tag = targetElemt.tagName.toLowerCase();
-  let idValue = targetElemt.id;
-  let idPattern = `//*[@id='${idValue}']`;
-  let count = getCountOfXPath(idPattern);
-  if (count == 1) {
-    idPattern = `//${tag}[@id='${idValue}']`;
-    console.log(idPattern);
-  } else {
-    console.log("Duplicate");
-  }
   let attributes = targetElemt.attributes;
-  addAllXPathAttributes(attributes, tag);
+  addAllXPathAttributes(attributes, tag, targetElemt);
+  console.log(XPATHDATA);
+  XPATHDATA = [];
 };
 
-const addAllXPathAttributes = (attributes, tagName) => {
-  console.log(attributes);
-  console.log(tagName);
-
+const addAllXPathAttributes = (attributes, tagName, targetElemt) => {
   Array.prototype.slice.call(attributes).forEach((element) => {
-    //console.log(element);
-    temp = `//${tagName}[@${element.name}='${element.value}']`;
-    let count = getCountOfXPath(temp);
-    if (count == 1) {
-      console.log(temp);
-    } else {
-      // console.log("Duplicate");
+    switch (element.name) {
+      case "id":
+        getUniqueId(element, tagName);
+        break;
+      case "name":
+        getUniqueName(element, tagName);
+        break;
+      case "className":
+        getUniqueClassName(element, tagName);
+        break;
+      default:
+        if (element.value != "") {
+          attributeBasedXPath(element, tagName);
+        }
+        break;
     }
   });
 };
@@ -64,6 +62,57 @@ const getCountOfXPath = (xpath) => {
     XPathResult.ANY_TYPE,
     null
   ).numberValue;
-  console.log("Count of the xpath is : " + count);
   return count;
+};
+
+let XPATHDATA = [];
+
+// id
+const getUniqueId = (element, tag) => {
+  let value = element.id;
+  let idPattern = `//*[@id='${value}']`;
+  let count = getCountOfXPath(idPattern);
+  if (count == 1) {
+    XPATHDATA.push(["unique id: ", value]);
+  }
+};
+
+// name
+const getUniqueName = (element, tag) => {
+  let value = element.name;
+  let namePattern = `//*[@name='${value}']`;
+  let count = getCountOfXPath(namePattern);
+  if (count == 1) {
+    XPATHDATA.push(["unique name: ", value]);
+  }
+};
+
+// className
+const getUniqueClassName = (element, tag) => {
+  let value = element.className;
+  let classNamePattern = `//*[@class='${value}']`;
+  let count = getCountOfXPath(namePattern);
+  if (count == 1) {
+    XPATHDATA.push(["unique className: ", value]);
+  }
+};
+
+// tag
+const getUniqueTag = (element, tag) => {
+  let count = document.getElementsByTagName(tag).length;
+  if (count == 1) {
+    XPATHDATA.push(["unique tag name: ", tag]);
+  }
+};
+
+// link
+const getUniqueLink = (element, tag) => {};
+
+// Attribute based XPath
+const attributeBasedXPath = (element, tag) => {
+  let temp = `//${tag}[@${element.name}='${element.value}']`;
+  let count = getCountOfXPath(temp);
+  if (count == 1) {
+    XPATHDATA.push(["attributes based XPath: ", temp]);
+  }
 };
