@@ -4,7 +4,7 @@ let XPATHDATA = [];
 const receiver = (message, sender, sendResponse) => {
   if (message.type === "getXPath") {
     console.log(message);
-    parseDOM();
+    parseDOM(targetElemt);
   }
 };
 
