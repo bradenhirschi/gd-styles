@@ -1,0 +1,13 @@
+{
+  "name": "GD Styles",
+  "description": "Get Tailwind or Bootstrap styles",
+  "version": "1.0",
+  "manifest_version": 3,
+  "icons": {
+    "128": "assets/icon.png"
+  },
+  "host_permissions": ["<all_urls>"],
+  "content_scripts": [
+    { "matches": ["<all_urls>"], "js": ["app/src/content.js"] }
+  ]
+}
