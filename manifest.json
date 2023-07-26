@@ -17,5 +17,6 @@
   ],
   "background": {
     "service_worker": "eventPage.js"
-  }
+  },
+  "devtools_page": "devtools.html"
 }
