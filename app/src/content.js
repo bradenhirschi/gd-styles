@@ -1,4 +1,6 @@
 let targetElemt = null;
+let XPATHDATA = [];
+
 const receiver = (message, sender, sendResponse) => {
   if (message.type === "getXPath") {
     console.log(message);
@@ -29,10 +31,12 @@ const parseDOM = () => {
   let tag = targetElemt.tagName.toLowerCase();
   let attributes = targetElemt.attributes;
   addAllXPathAttributes(attributes, tag, targetElemt);
+  getTextXPath(targetElemt);
   console.log(XPATHDATA);
   XPATHDATA = [];
 };
 
+// Add attributes to XPATHDATA
 const addAllXPathAttributes = (attributes, tagName, targetElemt) => {
   Array.prototype.slice.call(attributes).forEach((element) => {
     switch (element.name) {
@@ -64,8 +68,6 @@ const getCountOfXPath = (xpath) => {
   ).numberValue;
   return count;
 };
-
-let XPATHDATA = [];
 
 // id
 const getUniqueId = (element, tag) => {

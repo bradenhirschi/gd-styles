@@ -12,7 +12,7 @@
     {
       "matches": ["<all_urls>"],
       "run_at": "document_start",
-      "js": ["app/src/content.js"]
+      "js": ["app/src/content.js", "app/src/textXPath.js"]
     }
   ],
   "background": {
