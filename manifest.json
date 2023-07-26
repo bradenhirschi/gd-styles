@@ -6,8 +6,12 @@
   "icons": {
     "128": "assets/icon.png"
   },
+  "permissions": ["contextMenus", "tabs"],
   "host_permissions": ["<all_urls>"],
   "content_scripts": [
     { "matches": ["<all_urls>"], "js": ["app/src/content.js"] }
-  ]
+  ],
+  "background": {
+    "service_worker": "eventPage.js"
+  }
 }
