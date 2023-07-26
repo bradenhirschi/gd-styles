@@ -26,8 +26,26 @@ const init = () => {
 };
 
 const parseDOM = () => {
-  console.log(targetElemt);
-  console.log(targetElemt.id);
-  console.log(targetElemt.placeholder);
-  console.log(targetElemt.type);
+  let tag = targetElemt.tagName.toLowerCase();
+  let idValue = targetElemt.id;
+  let idPattern = `//*[@id='${idValue}']`;
+  let count = getCountOfXPath(idPattern);
+  if (count == 1) {
+    idPattern = `//${tag}[@id='${idValue}']`;
+    console.log(idPattern);
+  } else {
+    console.log("Duplicate");
+  }
+};
+
+const getCountOfXPath = (xpath) => {
+  let count = document.evaluate(
+    `count(${xpath})`,
+    document,
+    null,
+    XPathResult.ANY_TYPE,
+    null
+  ).numberValue;
+  console.log("Count of the xpath is : " + count);
+  return count;
 };
