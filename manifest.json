@@ -9,7 +9,11 @@
   "permissions": ["contextMenus", "tabs"],
   "host_permissions": ["<all_urls>"],
   "content_scripts": [
-    { "matches": ["<all_urls>"], "js": ["app/src/content.js"] }
+    {
+      "matches": ["<all_urls>"],
+      "run_at": "document_start",
+      "js": ["app/src/content.js"]
+    }
   ],
   "background": {
     "service_worker": "eventPage.js"
