@@ -27,7 +27,7 @@ const init = () => {
   );
 };
 
-const parseDOM = () => {
+const parseDOM = (targetElemt) => {
   let tag = targetElemt.tagName.toLowerCase();
   let attributes = targetElemt.attributes;
   addAllXPathAttributes(attributes, tag, targetElemt);
