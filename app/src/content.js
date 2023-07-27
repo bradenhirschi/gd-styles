@@ -32,7 +32,13 @@ const parseDOM = (targetElemt) => {
   let attributes = targetElemt.attributes;
   addAllXPathAttributes(attributes, tag, targetElemt);
   getTextXPath(targetElemt);
-  console.log(XPATHDATA);
+
+  // parseDOM is fired from devtools.js when element is selected, it passes this message to pane.js to update the page
+  let message = {
+    request: "sendtodevtools",
+    xpath: XPATHDATA,
+  };
+  chrome.runtime.sendMessage(message);
   XPATHDATA = [];
 };
 

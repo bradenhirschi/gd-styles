@@ -11,7 +11,6 @@ const getXPath = (info, tab) => {
   chrome.tabs.sendMessage(tab.id, msg, () => {
     console.log("Message sent");
   });
-  console.log(tab);
 };
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
