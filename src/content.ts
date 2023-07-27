@@ -1,4 +1,4 @@
-let targetElement = null;
+let targetElement: HTMLElement;
 const propertiesToDisplay = [
   "color",
   "font-family",
@@ -13,7 +13,7 @@ const propertiesToDisplay = [
 ];
 
 // This receiver is added as a listener to accept the "getstyles" message from devtools.js
-const receiver = (message, sender, sendResponse) => {
+const receiver = (message: any, sender: any, sendResponse: any) => {
   if (message.type === "getstyles") {
     parseElement(targetElement);
   }
@@ -26,17 +26,17 @@ window.addEventListener("DOMContentLoaded", (event) => {
     "mousedown",
     (event) => {
       // When the user right clicks to open the context menu, this captures the element they clicked on
-      targetElement = event.target;
+      targetElement = event.target as HTMLElement;
     },
     false
   );
 });
 
 // This function gets the CSSStyleDeclaration from the targetElement, then pulls out the
-const parseElement = (targetElement) => {
-  let style = getComputedStyle(targetElement);
+const parseElement = (element: HTMLElement) => {
+  let style = getComputedStyle(element);
 
-  const targetElementProperties = [];
+  const targetElementProperties: any[] = [];
 
   propertiesToDisplay.forEach((property) => {
     const value = style.getPropertyValue(property);

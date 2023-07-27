@@ -4,6 +4,6 @@ chrome.runtime.onMessage.addListener((req, rec, res) => {
   }
 });
 
-const buildUI = (data) => {
+const buildUI = (data: any) => {
   document.write(data);
 };
