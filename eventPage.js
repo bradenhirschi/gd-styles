@@ -4,9 +4,9 @@ chrome.contextMenus.create({
   contexts: ["all"],
 });
 
-const getXPath = (info, tab) => {
+const getStyles = (info, tab) => {
   let msg = {
-    type: "getXPath",
+    type: "getstyles",
   };
   chrome.tabs.sendMessage(tab.id, msg, () => {
     console.log("Message sent");
@@ -14,9 +14,5 @@ const getXPath = (info, tab) => {
 };
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
-  /*
-  This doesn't work, see https://developer.chrome.com/docs/extensions/migrating/to-service-workers/
-  alert(info);
-  */
-  getXPath(info, tab);
+  getStyles(info, tab);
 });
