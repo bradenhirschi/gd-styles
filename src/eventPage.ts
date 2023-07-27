@@ -4,7 +4,7 @@ chrome.contextMenus.create({
   contexts: ["all"],
 });
 
-const getStyles = (info, tab) => {
+const getStyles = (info: any, tab: any) => {
   let msg = {
     type: "getstyles",
   };

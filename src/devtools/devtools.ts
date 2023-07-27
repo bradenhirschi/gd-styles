@@ -4,5 +4,5 @@ chrome.devtools.panels.elements.createSidebarPane("GD Styles", (pane) => {
       useContentScriptContext: true,
     });
   });
-  pane.setPage("/app/src/pane/pane.html");
+  pane.setPage("/src/pane/pane.html");
 });
