@@ -1,9 +1,13 @@
 chrome.runtime.onMessage.addListener((req, rec, res) => {
   if (req.request === "sendtopane") {
-    buildUI(req.styles);
+    buildUI(req.classList);
   }
 });
 
 const buildUI = (data: any) => {
-  document.write(data);
+  var stylesBox = document.getElementById("styles")!;
+
+  if (stylesBox) {
+    stylesBox.textContent += data;
+  }
 };
