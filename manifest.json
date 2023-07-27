@@ -12,11 +12,11 @@
     {
       "matches": ["<all_urls>"],
       "run_at": "document_start",
-      "js": ["app/src/content.js", "app/src/textXPath.js"]
+      "js": ["app/src/content.js"]
     }
   ],
   "background": {
-    "service_worker": "eventPage.js"
+    "service_worker": "app/src/eventPage.js"
   },
-  "devtools_page": "devtools.html"
+  "devtools_page": "app/src/devtools/devtools.html"
 }
