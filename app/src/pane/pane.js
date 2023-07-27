@@ -1,6 +1,6 @@
 chrome.runtime.onMessage.addListener((req, rec, res) => {
-  if (req.request === "sendtodevtools") {
-    buildUI(req.xpath);
+  if (req.request === "sendtopane") {
+    buildUI(req.styles);
   }
 });
 
