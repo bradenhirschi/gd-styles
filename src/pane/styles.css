@@ -1,21 +1,38 @@
-.card {
-  margin: 10%;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#top-third {
+  height: 66.5%;
+  padding: 5px;
+}
+
+#top-third {
+  height: 33.5%;
+  padding: 5px;
+}
+
+.codeBox {
   padding: 10px;
   color: #bfbfbf;
   background-color: #333333;
   border-radius: 10px;
   border-width: 2px;
   border: black;
-  width: 80%;
-  min-height: 100px;
-  height: fit-content;
-  font-family: "Source Code Pro", monospace;
   display: flex;
   flex-direction: row;
 }
 
 #styles {
-  width: 100%;
-  height: 100%;
   flex-grow: 1;
+  font-family: "Source Code Pro", monospace;
+}
+
+button {
+  background: transparent;
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
 }
