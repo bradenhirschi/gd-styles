@@ -1,13 +1,16 @@
+let classList = "";
+
 chrome.runtime.onMessage.addListener((req, rec, res) => {
   if (req.request === "sendtopane") {
-    buildUI(req.classList);
+    classList = req.classList;
+    buildUI();
   }
 });
 
-const buildUI = (data: any) => {
-  var stylesBox = document.getElementById("styles")!;
+const buildUI = () => {
+  let stylesBox = document.getElementById("styles")!;
 
   if (stylesBox) {
-    stylesBox.textContent += data;
+    stylesBox.textContent += classList;
   }
 };

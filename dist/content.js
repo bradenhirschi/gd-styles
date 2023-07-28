@@ -1,4 +1,13 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 let targetElement;
 let propertiesToDisplay = ["color", "background-color"];
 // This receiver is added as a listener to accept the "getstyles" message from devtools.js
@@ -6,6 +15,8 @@ const receiver = (message, sender, sendResponse) => {
     if (message.type === "getstyles") {
         parseElement(targetElement);
     }
+    if (message.type === "copyText")
+        copyToTheClipboard(message.textToCopy);
 };
 chrome.runtime.onMessage.addListener(receiver);
 // Listen to mouse events once DOM is loaded
@@ -15,6 +26,20 @@ window.addEventListener("DOMContentLoaded", (event) => {
         targetElement = event.target;
     }, false);
 });
+//
+function copyToTheClipboard(textToCopy) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const el = document.createElement("textarea");
+        el.value = textToCopy;
+        el.setAttribute("readonly", "");
+        el.style.position = "absolute";
+        el.style.left = "-9999px";
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand("copy");
+        document.body.removeChild(el);
+    });
+}
 // This function gets the CSSStyleDeclaration from the targetElement, then gets the Tailwind styles from convertCssToTailwind, then passes the styles to the pane via message
 const parseElement = (element) => {
     const styles = getComputedStyle(element);
