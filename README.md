@@ -1,5 +1,5 @@
 # GD Styles
-** This is a work in progress and more supported CSS properties and other features are still being added **
+**This is a work in progress and more supported CSS properties and other features are still being added**
 
 ## CSS properties currently supported:
 ***
