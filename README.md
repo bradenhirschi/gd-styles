@@ -2,7 +2,6 @@
 **This is a work in progress and more supported CSS properties and other features are still being added**
 
 ## CSS properties currently supported:
-***
 - Color
 - Background color
 - Padding
@@ -10,7 +9,6 @@
 - Border radius
 
 ## General flow of things within the extension
-***
 1. devtools/devtools.js creates sidebar pane with pane/pane.html as its contents
 2. Element selected and parseElement triggered
    - eventPage.js creates context menu. On menu click it sends a message to content.js to trigger parseElement. content.js has a listener that tracked where the mouse touched down to open the context menu, it uses this to determine which element to parse
