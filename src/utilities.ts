@@ -1,9 +1,15 @@
-/* Convert rgb or rgbacolor to hexidecimal
- *   Used for classes:
- *       color
- *       background-color
+/*
+ * These are helper functions that are used in multiple functions within conversions.ts. Each one should have a brief
+ * description of its functionality as well as a list of the functions within conversions.ts which call it
  */
-function rgbaToHex(rgbaColor: string) {
+
+/*
+ * Convert rgb or rgbacolor to hexidecimal
+ *
+ * color
+ * background-color
+ */
+const rgbaToHex = (rgbaColor: string) => {
   // Extract the individual color values from the string
   const colorValues = rgbaColor.match(/(?:\d+(\.\d+)?)/g);
 
@@ -24,7 +30,7 @@ function rgbaToHex(rgbaColor: string) {
     return hex.length === 1 ? `0${hex}` : hex;
   });
 
-  // Handle alpha value if present
+  // Handle alpha (the 'a' in rgba) value if present
   let alphaHex = "";
   if (colorValues.length === 4) {
     const alphaValue = parseFloat(colorValues[3]);
@@ -36,25 +42,4 @@ function rgbaToHex(rgbaColor: string) {
 
   // Combine the hexadecimal color values into the final string
   return `#${hexValues.join("")}${alphaHex}`;
-}
-
-/*
-  Used for class:
-    Padding
-*/
-function paddingToTailwindClass(cssString: string) {
-  const paddings = cssString.split(" ");
-  let paddingClass = "";
-
-  if (paddings.length === 1) {
-    paddingClass = `p-[${paddings[0]}]`;
-  } else if (paddings.length === 2) {
-    paddingClass = `py-[${paddings[0]}] px-[${paddings[1]}]`;
-  } else if (paddings.length === 3) {
-    paddingClass = `pt-[${paddings[0]}] px-[${paddings[1]}] pb-[${paddings[2]}]`;
-  } else if (paddings.length >= 4) {
-    paddingClass = `pt-[${paddings[0]}] pr-[${paddings[1]}] pb-[${paddings[2]}] pl-${paddings[3]}]`;
-  }
-
-  return paddingClass;
-}
+};

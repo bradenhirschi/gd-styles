@@ -12,7 +12,7 @@
     {
       "matches": ["<all_urls>"],
       "run_at": "document_start",
-      "js": ["dist/content.js", "dist/conversionFunctions.js"]
+      "js": ["dist/content.js", "dist/conversions.js", "dist/utilities.js"]
     }
   ],
   "background": {
