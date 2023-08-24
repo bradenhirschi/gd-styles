@@ -5,6 +5,8 @@ let propertiesToDisplay = [
   "border",
   "border-radius",
   "color",
+  "font-size",
+  "font-weight",
   "padding",
 ];
 
@@ -43,6 +45,10 @@ const parseElement = (element: HTMLElement) => {
           return borderRadiusToTailwind(styles.borderRadius);
         case "color":
           return colorToTailwind(styles.color);
+        case "font-size":
+          return fontSizeToTailwind(styles.fontSize);
+        case "font-weight":
+          return fontWeightToTailwind(styles.fontWeight);
         case "padding":
           return paddingToTailwind(styles.padding);
         default:

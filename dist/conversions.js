@@ -85,6 +85,39 @@ const colorToTailwind = (cssString) => {
         return "";
     }
 };
+const fontStyleToTailwind = (cssString) => {
+    //Mapping of CSS font styles to Tailwind classes
+    const fontStyleMap = {
+        italic: "italic",
+        oblique: "italic", // No direct oblique class in Tailwind
+        // ... Add more mappings based on your needs
+    };
+    return fontStyleMap[cssString] || "";
+};
+const fontWeightToTailwind = (cssString) => {
+    /*
+    // Mapping of CSS font weights to Tailwind classes
+    const fontWeightMap: { [key: string]: string } = {
+      normal: "font-normal",
+      bold: "font-bold",
+      // ... Add more mappings based on your needs
+    };
+  
+    return fontWeightMap[cssString] || "";
+    */
+    return `font-[${cssString}]`;
+};
+const fontSizeToTailwind = (cssString) => {
+    /*
+    // Mapping of CSS font sizes to Tailwind classes
+    const fontSizeMap: { [key: string]: string } = {
+      // Mapping of CSS font-size values to Tailwind classes
+    };
+  
+    return fontSizeMap[cssFontSize] || "";
+    */
+    return `font-[${cssString}]`;
+};
 const paddingToTailwind = (cssString) => {
     const paddings = cssString.split(" ");
     let paddingClass = "";

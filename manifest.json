@@ -1,6 +1,6 @@
 {
   "name": "GD Styles",
-  "description": "Get Tailwind or Bootstrap styles",
+  "description": "Copy CSS styles with Tailwind classes",
   "version": "0.0.0.1",
   "manifest_version": 3,
   "icons": {

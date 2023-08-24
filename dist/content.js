@@ -5,6 +5,8 @@ let propertiesToDisplay = [
     "border",
     "border-radius",
     "color",
+    "font-size",
+    "font-weight",
     "padding",
 ];
 // This receiver is added as a listener to accept the "getstyles" message from devtools.js
@@ -35,6 +37,10 @@ const parseElement = (element) => {
                 return borderRadiusToTailwind(styles.borderRadius);
             case "color":
                 return colorToTailwind(styles.color);
+            case "font-size":
+                return fontSizeToTailwind(styles.fontSize);
+            case "font-weight":
+                return fontWeightToTailwind(styles.fontWeight);
             case "padding":
                 return paddingToTailwind(styles.padding);
             default:
