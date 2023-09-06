@@ -9,7 +9,7 @@ let propertiesToDisplay = [
     "font-weight",
     "padding",
 ];
-// This receiver is added as a listener to accept the "getstyles" message from devtools.js
+// This receiver is added as a listener to accept the "getstyles" message from eventPage.ts
 const receiver = (message, sender, sendResponse) => {
     if (message.type === "getstyles") {
         parseElement(targetElement);
@@ -25,6 +25,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 });
 // This function gets the CSSStyleDeclaration from the targetElement, then gets the Tailwind styles from various conversion functions, then passes the styles to the pane via message
 const parseElement = (element) => {
+    const nodeName = element.nodeName;
     const styles = getComputedStyle(element);
     const classList = propertiesToDisplay
         .map((property) => {
@@ -57,6 +58,7 @@ const parseElement = (element) => {
         request: "sendtopane",
         classList: classList,
         stylesList: stylesList,
+        nodeName: nodeName,
     };
     chrome.runtime.sendMessage(message);
 };

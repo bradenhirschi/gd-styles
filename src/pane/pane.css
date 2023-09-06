@@ -2,20 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-#top-third {
+body {
+  color: black;
+  background-color: white;
+}
+
+#top-section {
   height: 66.5%;
   padding: 5px;
 }
 
-#top-third {
+#bottom-section {
   height: 33.5%;
   padding: 5px;
+  display: flex;
+  justify-content: center;
 }
 
-.codeBox {
+#element-type {
+  color: #111144;
+}
+
+.code-box {
   padding: 10px;
-  color: #bfbfbf;
-  background-color: #333333;
+  background-color: #dddddd;
   border-radius: 10px;
   border-width: 2px;
   border: black;
@@ -35,4 +45,16 @@ button {
 
 button:hover {
   cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: white;
+    background-color: #222222;
+  }
+
+  .code-box {
+    color: #bfbfbf;
+    background-color: #333333;
+  }
 }

@@ -15,6 +15,9 @@
       "js": ["dist/content.js", "dist/conversions.js", "dist/utilities.js"]
     }
   ],
+  "action": {
+    "default_popup": "src/popup/popup.html"
+  },
   "background": {
     "service_worker": "dist/eventPage.js"
   },

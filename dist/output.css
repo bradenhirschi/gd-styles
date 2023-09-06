@@ -534,12 +534,17 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-#top-third {
+#top-section {
+  height: 66.5%;
+  padding: 5px;
+}
+
+#bottom-section {
   height: 33.5%;
   padding: 5px;
 }
 
-.codeBox {
+.code-box {
   padding: 10px;
   color: #bfbfbf;
   background-color: #333333;

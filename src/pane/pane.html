@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <script src="/dist/pane/pane.js"></script>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="pane.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,13 +13,17 @@
     <title>GD Styles</title>
   </head>
   <body>
-    <div id="top-third">
-      <div class="codeBox">
-        <div id="styles"></div>
+    <div id="top-section">
+      <div id="element-type"></div>
+      <div class="code-box">
+        <div id="styles">
+          Select an element in DevTools or right click it and select 'GD Styles'
+          to see classes
+        </div>
       </div>
     </div>
-    <div id="bottom-third">
-      <div id="styledElement">Lorem Ipsum</div>
+    <div id="bottom-section">
+      <div id="styled-element"></div>
     </div>
   </body>
 </html>
