@@ -7,6 +7,15 @@ body {
   background-color: white;
 }
 
+button {
+  background: transparent;
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
 #top-section {
   height: 66.5%;
   padding: 5px;
@@ -20,31 +29,36 @@ body {
 }
 
 #element-type {
-  color: #111144;
+  color: white;
+  size: 48px;
+  font-weight: bold;
+  padding-bottom: 5px;
 }
 
-.code-box {
+#code-box {
   padding: 10px;
   background-color: #dddddd;
   border-radius: 10px;
   border-width: 2px;
   border: black;
   display: flex;
+  flex-direction: column;
+}
+
+#code-box-header {
+  display: flex;
   flex-direction: row;
+}
+
+#copy-button {
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
 }
 
 #styles {
   flex-grow: 1;
   font-family: "Source Code Pro", monospace;
-}
-
-button {
-  background: transparent;
-  border: none;
-}
-
-button:hover {
-  cursor: pointer;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -53,8 +67,12 @@ button:hover {
     background-color: #222222;
   }
 
-  .code-box {
+  #code-box {
     color: #bfbfbf;
     background-color: #333333;
+  }
+
+  #copy-button:hover {
+    background-color: #444444;
   }
 }
