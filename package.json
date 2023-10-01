@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tailwind": "npx tailwindcss -i ./src/pane/styles.css -o ./dist/output.css  --watch",
     "compile": "tsc -w"
   },
   "keywords": [],

@@ -16,8 +16,8 @@ function borderToTailwind(cssString) {
     const [style, color] = styleAndColor.split(/\s+/);
     let borderClasses = "";
     // Convert border width
-    if (width === "0") {
-        borderClasses += "border-0 ";
+    if (width === "0px") {
+        return "";
     }
     else if (width !== undefined) {
         borderClasses += `border-[${width}] `;

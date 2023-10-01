@@ -10,10 +10,37 @@ let propertiesToDisplay = [
   "padding",
 ];
 
+/*
+const port = chrome.runtime.connect();
+port.onMessage.addListener(function (message) {
+  if (message.type === "copy") {
+    const e = document.createElement("textarea");
+    (e.value = "port listened to -"), message.data;
+    e.setAttribute("readonly", "");
+    e.style.position = "absolute";
+    e.style.left = "-9999px";
+    document.body.appendChild(e);
+    e.select();
+    document.execCommand("copy");
+    document.body.removeChild(e);
+  }
+});
+*/
+
 // This receiver is added as a listener to accept the "getstyles" message from eventPage.ts
 const receiver = (message: any, sender: any, sendResponse: any) => {
   if (message.type === "getstyles") {
     parseElement(targetElement);
+  } else if (message.type === "copy") {
+    const e = document.createElement("textarea");
+    e.value = message.data;
+    e.setAttribute("readonly", "");
+    e.style.position = "absolute";
+    e.style.left = "-9999px";
+    document.body.appendChild(e);
+    e.select();
+    document.execCommand("copy");
+    document.body.removeChild(e);
   }
 };
 chrome.runtime.onMessage.addListener(receiver);
