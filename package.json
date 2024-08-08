@@ -1,13 +1,13 @@
 {
   "name": "gd-styles",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Convert CSS styles to TailwindCSS classes",
   "scripts": {
+    "build": "tsc",
     "compile": "tsc -w"
   },
   "keywords": [],
-  "author": "",
+  "author": "Braden Hirschi",
   "license": "ISC",
   "dependencies": {
     "@types/chrome": "^0.0.242"
