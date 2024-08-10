@@ -1,9 +1,11 @@
+import { rgbaToHex } from "./utilities";
+
 /*
  * These are functions to convert CSS styles to Tailwind classes. Some call helper functions from utilities.ts.
  * Functions are listed here in alphabetical order
  */
 
-const backgroundColorToTailwind = (cssString: string): string => {
+export const backgroundColorToTailwind = (cssString: string): string => {
   if (cssString !== "rgba(0, 0, 0, 0)") {
     return `bg-[${rgbaToHex(cssString)}]`;
   } else {
@@ -11,7 +13,7 @@ const backgroundColorToTailwind = (cssString: string): string => {
   }
 };
 
-function borderToTailwind(cssString: string): string {
+export function borderToTailwind(cssString: string): string {
   const [width, styleAndColor] = cssString.split(/\s+/);
   const [style, color] = styleAndColor.split(/\s+/);
   let borderClasses = "";
@@ -51,7 +53,7 @@ function borderToTailwind(cssString: string): string {
   return borderClasses.trim();
 }
 
-const borderRadiusToTailwind = (cssString: string): string => {
+export const borderRadiusToTailwind = (cssString: string): string => {
   const radii = cssString.split(" ");
   let roundedClass = "";
 
@@ -79,7 +81,7 @@ const borderRadiusToTailwind = (cssString: string): string => {
   return roundedClass;
 };
 
-const colorToTailwind = (cssString: string): string => {
+export const colorToTailwind = (cssString: string): string => {
   if (cssString !== "rgb(0, 0, 0)") {
     return `text-[${rgbaToHex(cssString)}]`;
   } else {
@@ -87,7 +89,7 @@ const colorToTailwind = (cssString: string): string => {
   }
 };
 
-const fontStyleToTailwind = (cssString: string): string => {
+export const fontStyleToTailwind = (cssString: string): string => {
   //Mapping of CSS font styles to Tailwind classes
   const fontStyleMap: { [key: string]: string } = {
     italic: "italic",
@@ -98,7 +100,7 @@ const fontStyleToTailwind = (cssString: string): string => {
   return fontStyleMap[cssString] || "";
 };
 
-const fontWeightToTailwind = (cssString: string): string => {
+export const fontWeightToTailwind = (cssString: string): string => {
   /*
   // Mapping of CSS font weights to Tailwind classes
   const fontWeightMap: { [key: string]: string } = {
@@ -112,7 +114,7 @@ const fontWeightToTailwind = (cssString: string): string => {
   return `font-[${cssString}]`;
 };
 
-const fontSizeToTailwind = (cssString: string): string => {
+export const fontSizeToTailwind = (cssString: string): string => {
   /*
   // Mapping of CSS font sizes to Tailwind classes
   const fontSizeMap: { [key: string]: string } = {
@@ -124,7 +126,7 @@ const fontSizeToTailwind = (cssString: string): string => {
   return `font-[${cssString}]`;
 };
 
-const paddingToTailwind = (cssString: string): string => {
+export const paddingToTailwind = (cssString: string): string => {
   const paddings = cssString.split(" ");
   let paddingClass = "";
 

@@ -12,14 +12,14 @@
     {
       "matches": ["<all_urls>"],
       "run_at": "document_start",
-      "js": ["dist/content.js", "dist/conversions.js", "dist/utilities.js"]
+      "js": ["dist/content.js", "dist/conversions.bundle.js", "dist/utilities.bundle.js"]
     }
   ],
   "action": {
-    "default_popup": "src/popup/popup.html"
+    "default_popup": "dist/popup.html"
   },
   "background": {
-    "service_worker": "dist/eventPage.js"
+    "service_worker": "dist/eventPage.bundle.js"
   },
-  "devtools_page": "src/devtools/devtools.html"
+  "devtools_page": "dist/devtools.html"
 }

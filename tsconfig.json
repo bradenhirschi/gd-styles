@@ -1,11 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "outDir": "dist",
-    "rootDir": "src",
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
     "module": "es6",
-    "strict": true,
-    "esModuleInterop": true
+    "target": "es5",
+    "allowJs": true
   },
-  "include": ["src/**/*.ts"]
+  "files": ["src/index.ts"]
 }

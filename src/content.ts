@@ -1,3 +1,13 @@
+import {
+  backgroundColorToTailwind,
+  borderToTailwind,
+  borderRadiusToTailwind,
+  colorToTailwind,
+  fontSizeToTailwind,
+  fontWeightToTailwind,
+  paddingToTailwind,
+} from "./conversions";
+
 let targetElement: HTMLElement;
 
 let propertiesToDisplay = [
@@ -57,8 +67,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
   );
 });
 
+alert('content script workin');
+
 // This function gets the CSSStyleDeclaration from the targetElement, then gets the Tailwind styles from various conversion functions, then passes the styles to the pane via message
-const parseElement = (element: HTMLElement) => {
+export const parseElement = (element: HTMLElement) => {
+  alert('parse element');
+
   const nodeName = element.nodeName;
   const styles = getComputedStyle(element);
 
@@ -97,5 +111,8 @@ const parseElement = (element: HTMLElement) => {
     stylesList: stylesList,
     nodeName: nodeName,
   };
+
   chrome.runtime.sendMessage(message);
 };
+
+(window as any).parseElement = parseElement;

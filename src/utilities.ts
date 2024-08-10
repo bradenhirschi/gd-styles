@@ -9,7 +9,7 @@
  * color
  * background-color
  */
-const rgbaToHex = (rgbaColor: string) => {
+export const rgbaToHex = (rgbaColor: string) => {
   // Extract the individual color values from the string
   const colorValues = rgbaColor.match(/(?:\d+(\.\d+)?)/g);
 

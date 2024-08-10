@@ -12,6 +12,7 @@ document.addEventListener(
   false
 );
 
+// we correctly get chrome from webpack
 chrome.runtime.onMessage.addListener((req, rec, res) => {
   if (req.request === "sendtopane") {
     classList = req.classList;
